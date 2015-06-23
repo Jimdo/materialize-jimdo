@@ -57,9 +57,9 @@
     "sitemap.xml",
     "package.json",
     "Gruntfile.js"
-
   ],
   "dependencies": {
-        "jquery": ">=2.1.1"
-    }
+    "jquery": ">=2.1.1",
+    "jimdo-ui-lib": "git@github.com:Jimdo/jimdo-ui-lib.git#1.0.27"
+  }
 }

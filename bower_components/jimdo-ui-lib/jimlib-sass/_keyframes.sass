@@ -1,0 +1,120 @@
+=j-keyframes
+  +j-animation-fadein
+  +j-animation-fadeout
+  +j-animation-scrollbuttonjumpg-right
+  +j-animation-scrollbuttonjumpg-left
+  +j-animation-navpills-appear
+  +j-animation-navpills-disappear
+  +j-animation-spinit
+  +j-animation-enter
+  +j-animation-leave
+  +j-animation-optionbounce
+  +j-animation-shake
+
+=j-animation-fadein
+  @keyframes fadein
+    0%
+      opacity: 0
+    100%
+      opacity: 1
+
+=j-animation-fadeout
+  @keyframes fadeout
+    0%
+      opacity: 1
+    100%
+      opacity: 0
+
+=j-animation-scrollbuttonjumpg-right
+  @keyframes scrollbuttonjumpg-right
+    0%
+      margin-right: 0
+    50%
+      margin-right: -5px
+    100%
+      margin-right: 0
+
+=j-animation-scrollbuttonjumpg-left
+  @keyframes scrollbuttonjumpg-left
+    0%
+      margin-left: 0
+    50%
+      margin-left: -5px
+    100%
+      margin-left: 0
+
+=j-animation-navpills-appear
+  @keyframes navpills-appear
+    0%
+      opacity: 0
+      transform: scale(1) translateY(0)
+    30%
+      transform: scale(1.05) translateY(-5px)
+    100%
+      transform: scale(1) translateY(0)
+      opacity: 1
+
+=j-animation-navpills-disappear
+  @keyframes navpills-disappear
+    0%
+      opacity: 1
+    100%
+      opacity: 0
+
+=j-animation-spinit
+  @keyframes spinit
+    from
+      transform: rotate(0deg)
+    to
+      transform: rotate(360deg)
+
+=j-animation-enter
+  @keyframes enter
+    0%
+      transform: translateY(4px)
+      opacity: 0
+    100%
+      transform: translateY(0)
+      opacity: 1
+
+=j-animation-leave
+  @keyframes leave
+    0%
+      transform: translateY(0)
+      opacity: 1
+    100%
+      transform: translateY(4px)
+      opacity: 0
+
+=j-animation-confirmbox-enter
+  @keyframes confirmbox-enter
+    0%
+      margin-top: -49px
+    100%
+      margin-top: 0
+
+=j-animation-confirmbox-leave
+  @keyframes confirmbox-leave
+    0%
+      margin-top: 0
+    100%
+      margin-top: -50px
+
+=j-animation-optionbounce
+  @keyframes optionbounce
+    0%
+      opacity: 0
+    10%
+      // @include transform(scale(1) translateY(0)
+    30%
+      // @include transform(scale(1.05) translateY(-5px)
+    100%
+      opacity: 1
+      // @include transform(scale(1) translateY(0)
+
+=j-animation-shake
+  @keyframes shake
+    33%
+      transform: rotate(-5deg)
+    66%
+      transform: rotate(5deg)

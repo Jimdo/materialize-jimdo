@@ -1,0 +1,89 @@
+@font-face {
+	font-family: 'JimdoIconFontWeb';
+	src:url('fonts/JimdoIconFontWeb.eot?dbd20f');
+	src:url('fonts/JimdoIconFontWeb.eot?#iefixdbd20f') format('embedded-opentype'),
+		url('fonts/JimdoIconFontWeb.woff2?dbd20f') format('woff2'),
+		url('fonts/JimdoIconFontWeb.ttf?dbd20f') format('truetype'),
+		url('fonts/JimdoIconFontWeb.woff?dbd20f') format('woff'),
+		url('fonts/JimdoIconFontWeb.svg?dbd20f#JimdoIconFontWeb') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-web-"], [class*=" icon-web-"] {
+	font-family: 'JimdoIconFontWeb';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-web-logo-jim:before {
+	content: "\e611";
+}
+.icon-web-logo-do:before {
+	content: "\e614";
+}
+.icon-web-shopping-cart-web:before {
+	content: "\e66b";
+}
+.icon-web-loading-spinner-l:before {
+	content: "\e60b";
+}
+.icon-web-loading-spinner:before {
+	content: "\e607";
+}
+.icon-web-ban:before {
+	content: "\e606";
+}
+.icon-web-status-half:before {
+	content: "\e603";
+}
+.icon-web-status-one-quarter:before {
+	content: "\e604";
+}
+.icon-web-status-three-quarters:before {
+	content: "\e605";
+}
+.icon-web-jimdoweighticon:before {
+	content: "\e602";
+}
+.icon-web-pause:before {
+	content: "\e601";
+}
+.icon-web-play:before {
+	content: "\e600";
+}
+.icon-web-chevron-right:before {
+	content: "\e672";
+}
+.icon-web-chevron-left:before {
+	content: "\e674";
+}
+.icon-web-caret-up:before {
+	content: "\e6bf";
+}
+.icon-web-caret-down:before {
+	content: "\e6be";
+}
+.icon-web-remove:before {
+	content: "\e60d";
+}
+.icon-web-warning-sign:before {
+	content: "\e66a";
+}
+.icon-web-question-sign:before {
+	content: "\e654";
+}
+.icon-web-ok:before {
+	content: "\e612";
+}
+.icon-web-calendar:before {
+	content: "\e66c";
+}

@@ -1,0 +1,228 @@
+//########## Mixins
+
+// Jimdo Mixins
+
+
+/// NOT FOR PRODUCTION YET. Gives every styled elememnt a bootstrap-like reset to ease migration and remove bootstrap.
+/// @author fabian
+/// @example scss
+/// .jmdcms-button
+///   +elementreset
+///
+
+
+=elementreset
+  box-sizing: border-box
+  padding: 0
+  margin: 0
+  border: none
+  // etc pp
+
+
+/// Sets positioning attributes for a selector.
+/// @author björn
+/// @example scss
+/// div
+///   +pos($position: "static", $top: "10", $right: "10", $bottom: "10", $left: "10")
+///
+///
+/// @param $position (relative) - `static`, `relative`, `absolute`, `fixed`
+/// @param $top (auto)
+/// @param $right (auto)
+/// @param $bottom (auto)
+/// @param $left (auto)
+
+
+=pos($position,$top,$right,$bottom,$left)
+
+  @if $position == "s" or $position == "sta" or $position == "static"
+    position: static
+  @else if $position == "r" or $position == "rel" or $position == "relative"
+    position: relative
+  @else if $position == "a" or $position == "abs" or $position == "absolute"
+    position: absolute
+  @else if $position == "f" or $position == "fix" or $position == "fixed"
+    position: fixed
+  @else
+    @debug "position accepts 's, sta, r, rel, a, abs, f, fix' as shorthands"
+
+  @if $top != ''
+    top: $top
+  @else
+    top: auto
+
+  @if $right != ''
+    right: $right
+  @else
+    right: auto
+
+  @if $bottom != ''
+    bottom: $bottom
+  @else
+    bottom: auto
+
+  @if $left != ''
+    left: $left
+  @else
+    left: auto
+
+///
+/// Sets font attributes for a selector – mostly used for using the iconfonts.
+///
+/// @example scss
+/// div
+///   +font($type: iconweb, size: 1.2em)
+/// @param $type (icon) - `icon`, `iconweb`, 'text'
+/// @param $size (12px)
+/// @author björn?
+
+=font($type,$size: 12px)
+  @if $type == 'icon'
+    font-family: 'JimdoIconFont' !important
+    -moz-osx-font-smoothing: grayscale
+    -webkit-font-smoothing: antialiased
+    speak: none
+    vertical-align: middle
+  @else if $type == 'iconweb'
+    font-family: 'JimdoIconFontWeb' !important
+    -moz-osx-font-smoothing: grayscale
+    -webkit-font-smoothing: antialiased
+    speak: none
+    vertical-align: middle
+  @else
+    font-family: Helvetica, Arial, sans-serif !important
+  @if $size != none
+    font-size: $size
+
+
+///
+/// Alternative Icon Mixin
+/// - change font-atrributes only for content of ::before or ::after
+/// - pass character hex code directly as copied from the ico moon demo
+/// @example scss
+/// div
+///   +icon($position: after, $code: "\e640", $size: 10px, $type: web)
+///
+/// div
+///   +icon // all values have defaults
+/// @param $type (cms) - `cms`, `web`
+/// @param $size (12px)
+/// @param $code ("\e640")
+/// @param $position (after) - `before`, `after`
+/// @author fabian
+
+
+=icon($code: "\e66a", $position: before, $size: 16px, $type: cms)
+  // one colon pseudo selector fallback for IE 8 https://developer.mozilla.org/en-US/docs/Web/CSS/::before#Syntax
+  &:#{$position}
+    content: $code
+    font-size: $size
+    @if $type == 'cms'
+      font-family: 'JimdoIconFont' !important
+    @if $type == 'web'
+      font-family: 'JimdoIconFontWeb' !important
+    font-weight: normal
+    font-style: normal
+    -moz-osx-font-smoothing: grayscale
+    -webkit-font-smoothing: antialiased
+    speak: none
+    vertical-align: middle
+    @content
+  &::#{$position}
+    content: $code
+    font-size: $size
+    @if $type == 'cms'
+      font-family: 'JimdoIconFont' !important
+    @if $type == 'web'
+      font-family: 'JimdoIconFontWeb' !important
+    font-weight: normal
+    font-style: normal
+    -moz-osx-font-smoothing: grayscale
+    -webkit-font-smoothing: antialiased
+    speak: none
+    vertical-align: middle
+    @content
+
+
+// mixins for IE and Firefox specific stuff
+// just pass content to the mixin, no other configuration required.
+// see styling of .xbrowser-check in the spacko module as example.
+// be careful with implicitly set values (eg "background: red")
+
+=ff
+  @-moz-document url-prefix()
+    @content
+=ie
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
+    @content
+  // this is from http://www.adaodesign.com/css-styles-for-ie10-and-ie11-only/
+
+
+
+// Specific mixins with style
+
+=jimGuide
+  border-radius: $border-radius
+  border: $contrast-border
+  color: white
+  line-height: 1.3
+  background: $guide-background
+
+=bottomSharkFin($size,$color)
+  content: ''
+  width: 0
+  height: 0
+  border-top: $size solid $color
+  border-right: $size solid transparent
+  border-left: $size solid transparent
+
+
+// =================================
+//            RESPONSIVE 
+// =================================
+
+
+//    Breakpoint
+// ---------------------------------
+//
+//    @author: bjoern@jimdo.com
+//
+//    To set the breakpoint for different devices (values) global I intorduced this mixin. 
+//    The mixin is ready to go mobile first per default but with the second parameter it can
+//    be switched to the desktop first direction. 
+//
+//    SASS:
+//
+//      .element
+//          width: 100%
+//              @include breakpoint(phone)
+//                  width: 50%
+//
+//    CSS:
+//
+//      .element { width: 100%; }
+//      @media (min-width: 375px) { .element { width: 50%; }}
+//
+//    Note:
+//    At the beginning there is only one breakpoint for phone as we decided to start with it.
+
+=breakpoint($device, $first: mobile)
+
+    // Definition of breakpoints
+    @if $device == phone
+        $breakpoint: 375px
+    @else
+        // Warning message
+        @warn "The breakpoint for a device named {$device} is not defined."
+    
+    // Decision if mobile first or not
+    @if $first == mobile
+        @media (min-width: $breakpoint + 1)
+            @content
+    @else if $first == desktop
+        @media (max-width: $breakpoint)
+            @content
+    @else
+        // Warning message
+        @warn "There is no direction named {$first} is not defined. Leave empty or choose 'mobile' for mobile first (default) or 'desktop' for desktop first."
+

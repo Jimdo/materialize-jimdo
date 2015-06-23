@@ -4,6 +4,18 @@
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/Dogfalo/materialize?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Materialize, a CSS Framework based on material design
 
+---
+
+```
+npm install
+npm install grunt-cli -g
+grunt server
+open http://localhost:8000
+```
+
+---
+
+
 ### Current Version : v0.96.1
 
 ## Sass Requirements:

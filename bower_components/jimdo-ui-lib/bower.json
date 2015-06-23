@@ -1,0 +1,23 @@
+{
+  "name": "jimdo-ui-lib",
+  "homepage": "https://github.com/Jimdo/jimdo-ui-lib",
+  "authors": [
+    "jimdo/design"
+  ],
+  "description": "Living UI Library",
+  "license": "none",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "patternlab",
+    "bower_components",
+    "UI-kits",
+    "sassdoc",
+    "doc",
+    ".travis.yml"
+  ],
+  "dependencies": {
+    "paymentfont": "~1.1.0"
+  }
+}
